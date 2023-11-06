@@ -1,6 +1,7 @@
 N, M = map(int, input().split())
 sequence = list(map(int, input().split()))
 
+
 def find_element(L, R):
     min_val = min(sequence[L:R+1])
     for i in range(L, R+1):
