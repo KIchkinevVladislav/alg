@@ -1,0 +1,32 @@
+k = int(input()) 
+n = int(input())  
+time = 0
+people = [0] * (n + 1)
+
+for i in range(1, n + 1):
+    a = int(input()) 
+    trips = a // k
+    time += trips * i * 2
+    people[i] = a - trips * k
+
+flour = n
+loaded = 0
+
+while flour > 0:
+    if people[flour] == 0:
+        flour -= 1
+        continue
+
+    if loaded == 0:
+        time += flour * 2
+
+    loaded += people[flour]
+
+    if loaded > k:
+        people[flour] = loaded % k
+        loaded = 0
+    else:
+        people[flour] = 0
+        flour -= 1
+
+print(time)
